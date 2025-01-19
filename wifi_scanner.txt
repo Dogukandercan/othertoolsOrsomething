@@ -1,0 +1,25 @@
+import pywifi
+import time
+
+
+def scan_wifi_periodically(interval_seconds):
+    wifi = pywifi.PyWiFi()
+    iface = wifi.interfaces()[0]  # İlk Wi-Fi arayüzünü seçin, gerektiğinde değiştirin
+
+    while True:
+        print("Wi-Fi ağlarını tarama başladı...")
+
+        wifi_scan_results = iface.scan_results()
+
+        for result in wifi_scan_results:
+            print(f"SSID: {result.ssid}")
+            print(f"BSSID (MAC Adresi): {result.bssid}")
+            print(f"Signal Strength (Sinyal Gücü): {result.signal}")
+            print("-------")
+
+        print("Wi-Fi ağlarını tarama tamamlandı. Bir sonraki taramayı bekleyin...")
+        time.sleep(interval_seconds)
+
+
+scan_wifi_periodically(60)  
+#pip install comtypes
