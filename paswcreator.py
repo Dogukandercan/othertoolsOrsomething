@@ -3,7 +3,7 @@ import time
 
 word1 = "dogukan"
 word2 = "dercan"
-word3 = "gitar"
+word3 = "oamuk"
 
 
 punctuation1 = "*"
